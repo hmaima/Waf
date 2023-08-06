@@ -47,6 +47,27 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},
+		{
+			Name:      "RemoveScriptTag",
+			Condition: "or",
+			Rules: []teler.Condition{
+				{
+					Method:  request.ALL,
+					Element: request.Any,
+					Pattern: `(?i)<script[^>]*>.*<\/script>`,
+				},
+				{
+					Method:  request.ALL,
+					Element: request.Any,
+					Pattern: `(?i)\b(document\.[a-zA-Z]+|window\.[a-zA-Z]+)\b`,
+				},
+				{
+					Method:  request.ALL,
+					Element: request.Any,
+					Pattern: `<[^>]*>`,
+				},
+			},
+		},
 	},
 
 	LogFile: "teler.log",
