@@ -48,7 +48,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 		{
-			Name:      "RemoveScriptTag",
+			Name:      "Cross site scripting ",
 			Condition: "or",
 			Rules: []teler.Condition{
 				{
