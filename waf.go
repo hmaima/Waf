@@ -29,6 +29,10 @@ var TelerWAF = teler.New(teler.Options{
 	Excludes: []threat.Threat{
 		threat.BadReferrer,
 		threat.BadCrawler,
+		threat.BadIPAddress,
+		threat.CVE,
+		threat.CommonWebAttack,
+		threat.DirectoryBruteforce,
 	},
 	Whitelists: []string{
 		`request.Headers matches "(curl|Go-http-client|okhttp)/*"`,
