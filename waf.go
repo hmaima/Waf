@@ -40,7 +40,7 @@ var TelerWAF = teler.New(teler.Options{
 	},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
-		{
+		/*{
 			Name:      "SQL Injection",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -71,7 +71,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `<[^>]*>`,
 				},
 			},
-		},
+		},*/
 	},
 
 	LogFile: "teler.log",
