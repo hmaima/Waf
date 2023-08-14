@@ -5,7 +5,6 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/kitabisa/teler-waf"
-	"github.com/kitabisa/teler-waf/request"
 	"github.com/kitabisa/teler-waf/threat"
 	// /"github.com/govwa/user/session"
 )
@@ -39,7 +38,7 @@ var TelerWAF = teler.New(teler.Options{
 		`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
 	},
 	CustomsFromFile: "",
-	Customs: []teler.Rule{
+	Customs:         []teler.Rule{
 		/*{
 			Name:      "SQL Injection",
 			Condition: "or",
