@@ -5,7 +5,6 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/kitabisa/teler-waf"
-	"github.com/kitabisa/teler-waf/threat"
 	// /"github.com/govwa/user/session"
 )
 
@@ -25,17 +24,18 @@ func ConvertToHttprouterHandle(h http.Handler) httprouter.Handle {
 }
 
 var TelerWAF = teler.New(teler.Options{
-	Excludes: []threat.Threat{
+	/*Excludes: []threat.Threat{
 		threat.BadReferrer,
 		threat.BadCrawler,
 		threat.BadIPAddress,
 		threat.CVE,
 		threat.CommonWebAttack,
 		threat.DirectoryBruteforce,
-	},
+	},*/
 	Whitelists: []string{
-		`request.Headers matches "(curl|Go-http-client|okhttp)/*"`,
+
 		`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
+		`threat in [BadCrawler, BadIPAddress , BadReferrer , CVE , CommonWebAttack , DirectoryBruteforce ]`,
 	},
 	CustomsFromFile: "",
 	Customs:         []teler.Rule{
