@@ -25,18 +25,11 @@ func ConvertToHttprouterHandle(h http.Handler) httprouter.Handle {
 }
 
 var TelerWAF = teler.New(teler.Options{
-	/*Excludes: []threat.Threat{
-		threat.BadReferrer,
-		threat.BadCrawler,
-		threat.BadIPAddress,
-		threat.CVE,
-		threat.CommonWebAttack,
-		threat.DirectoryBruteforce,
-	},*/
+	
 	Whitelists: []string{
 
 		`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
-		`threat in [BadCrawler, BadIPAddress , BadReferrer , CVE  , DirectoryBruteforce ]`,
+		
 	},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
@@ -73,7 +66,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		{
+		/*{
 			Name:      "finds html breaking injections including whitespace attacks",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -85,7 +78,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		/*{
+		{
 			Name:      "finds attribute breaking injections including whitespace attacks",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -95,7 +88,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\"+.*[<=]\\s*\"[^\"]+\")|(?:\"\\s*\\w+\\s*=)|(?:>\\w=\\/)|(?:#.+\\)[\"\\s]*>)|(?:\"\\s*(?:src|style|on\\w+)\\s*=\\s*\")|(?:[^\\"+]?\"[,;\\s]+\\w*[\\[\\(])`,
 				},
 			},
-		},*/
+		},
 
 		{
 			Name:      "finds unquoted attribute breaking injections",
@@ -903,7 +896,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: "((burpcollaborator|pipedream)\\.net|canarytokens\\.com|oast\\.(online|(liv|sit|m)e|fun|pro))",
 				},
 			},
-		},
+		},*/
 	},
 
 	LogFile: "teler.log",
