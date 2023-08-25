@@ -545,7 +545,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},*/
-		{
+		/*{
 			Name:      "Detects basic SQL authentication bypass attempts 1/3",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -555,7 +555,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\d\"\s+\"\s+\d)|(?:^admin\s*\"|(\/\*)+\"+\s?(?:--|#|\/\*|{)?)|(?:\"\s*or\s*\"?\d)|(?:\x(?:23|27|3d))|(?:^.?\"$)|(?:(?:^[\"]*(?:[\d\"]+|[^\"]+\"))+\s*(?:n?and|x?or|not|\|\||\&\&)\s*[\w\"[+&!@(),.-])|(?:[^\w\s]\w+\s*[|-]\s*\"\s*\w)|(?:@\w+\s+(and|or)\s*[\"\d]+)|(?:@[\w-]+\s(and|or)\s*[^\w\s])|(?:[^\w\s:]\s*\d\W+[^\w\s]\s*\".)|(?:\Winformation_schema|table_name\W)`,
 				},
 			},
-		},
+		},*/
 		/*{
 			Name:      "Detects basic SQL authentication bypass attempts 2/3",
 			Condition: "or",
