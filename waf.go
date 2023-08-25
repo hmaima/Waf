@@ -121,7 +121,7 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:\W\s*hash\s*[^\w\s-])|(?:\w+=\W*[^,]*,[^\s(]\s*\\()|(?:\\?\"[^\s\"]\":)|(?:(?<!\\/)__[a-z]+__)|(?:(?:^|[\s)\\]\\}])(?:s|g)etter\s*=)`,
+					Pattern: `(?:\W\s*hash\s*[^\w\s-])|(?:\w+=\W*[^,]*,[^\s(]\s*\()|(?:\?\"[^\s\"]\":)|(?:(?<!\/)__[a-z]+__)|(?:(?:^|[\s)\]\}])(?:s|g)etter\s*=)`,
 				},
 			},
 		},
@@ -133,7 +133,7 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:with\s*\\(\s*.+\s*\\)\s*\w+\s*\\()|(?:(?:do|while|for)\s*\\([^)]*\\)\s*\\{)|(?:\\/[\w\s]*\\[\W*\w)`,
+					Pattern: `(?:with\s*\\(\s*.+\s*\\)\s*\w+\s*\\())|(?:(?:do|while|for)\s*\\([^)]*\\)\s*\\{)|(?:\/[\w\s]*\\[\W*\w])`,
 				},
 			},
 		},
@@ -149,18 +149,18 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},
-		/*{
+		{
 			Name:      "Detects self-executing JavaScript functions",
 			Condition: "or",
 			Rules: []teler.Condition{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:\\/\\w*\\s*\\)\\s*\\()|(?:\\([\\w\\s]+\\([\\w\\s]+\\)[\\w\\s]+\\))|(?:(?<!\\/(?:mozilla\\/\\d\\.\\d\\s))\\([^)[]+\\[[^\\]]+\\][^)]*\\))|(?:[^\\s!][{([][^({[]+[{([][^}\\])]+[}\\])][\\s+\",\\d]*[}\\])])|(?:\"\\)?\\]\\W*\\[)|(?:=\\s*[^\\s:;]+\\s*[{([][^}\\])]+[}\\])];)`,
+					Pattern: `(?:\/\w*\s*\)\s*\()|(?:\([\w\s]+\([\w\s]+\)[\w\s]+\))|(?:(?<!\/(?:mozilla\/\d\.\d\s))\([^)\[]+\[[^\]]+\][^)]*\))|(?:[^\s!][{([][^({[]+[{([][^}\\])]+[}\\])][\s+",\d]*[}\\])])|(?:"\)?\]\W*\[)|(?:=\s*[^:;]+\s*[{([][^}\\])]+[}\\])];)`,
 				},
 			},
 		},
-		{
+		/*{
 			Name:      "Detects the IE octal, hex and unicode entities",
 			Condition: "or",
 			Rules: []teler.Condition{
