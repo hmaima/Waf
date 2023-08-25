@@ -34,7 +34,7 @@ var TelerWAF = teler.New(teler.Options{
 	Whitelists:      []string{},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
-		/*{
+		/{
 			Name:      "SQL Injection",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -44,7 +44,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?i)\b(?:select|union|insert|update|delete|drop|exec)\b`,
 				},
 			},
-		},*/
+		},
 		{
 			Name:      "Cross site scripting ",
 			Condition: "or",
