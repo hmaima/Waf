@@ -40,7 +40,7 @@ var TelerWAF = teler.New(teler.Options{
 	},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
-		/*{
+		{
 			Name:      "SQL Injection",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -71,9 +71,9 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `<[^>]*>`,
 				},
 			},
-		},*/
+		},
 
-		{
+		/*{
 			Name:      "finds html breaking injections including whitespace attacks",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -904,7 +904,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},
-	},
+	},*/
 
 	LogFile: "teler.log",
 })
