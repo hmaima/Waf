@@ -66,7 +66,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},
-		/*{
+		{
 			Name:      "finds html breaking injections including whitespace attacks",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -78,7 +78,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		{
+		/*{
 			Name:      "finds attribute breaking injections including whitespace attacks",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -88,7 +88,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\"+.*[<=]\\s*\"[^\"]+\")|(?:\"\\s*\\w+\\s*=)|(?:>\\w=\\/)|(?:#.+\\)[\"\\s]*>)|(?:\"\\s*(?:src|style|on\\w+)\\s*=\\s*\")|(?:[^\\"+]?\"[,;\\s]+\\w*[\\[\\(])`,
 				},
 			},
-		},*/
+		},
 
 		{
 			Name:      "finds unquoted attribute breaking injections",
@@ -897,7 +897,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: "((burpcollaborator|pipedream)\\.net|canarytokens\\.com|oast\\.(online|(liv|sit|m)e|fun|pro))",
 				},
 			},
-		},
+		},*/
 	},
 	LogFile: "teler.log",
 })
