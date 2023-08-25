@@ -500,7 +500,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\\\\x[01fe][\\db-ce-f])|(?:%[01fe][\\db-ce-f])|(?:&#[01fe][\\db-ce-f])|(?:\\\\[01fe][\\db-ce-f])|(?:&#x[01fe][\\db-ce-f])`,
 				},
 			},
-		},
+		},*/
 		{
 			Name:      "Detects MySQL comments, conditions and ch(a)r injections",
 			Condition: "or",
@@ -508,7 +508,7 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: "(?:\\)\\s*when\\s*\\d+\\s*then)|(?:\"\\s*(?:#|--|{))|(?:\\/\\*!\\s?\\d+)|(?:ch(?:a)?r\\s*\\(\\s*\\d)|(?:(?:(n?and|x?or|not)\\s+|\\|\\||\\&\\&)\\s*\\w+\\()",
+					Pattern: `(?:\\)\\s*when\\s*\\d+\\s*then)|(?:\\"\\s*(?:#|--|{))|(?:\\/\\*!\\s?\\d+)|(?:ch(?:a)?r\\s*\\(\\s*\\d)|(?:(?:(n?and|x?or|not)\\s+|\\|\\||\\&\\&)\\s*\\w+\\()`,
 				},
 			},
 		},
@@ -644,7 +644,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},
-		{
+		/*{
 			Name:      "Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts",
 			Condition: "or",
 			Rules: []teler.Condition{
