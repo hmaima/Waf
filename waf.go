@@ -114,7 +114,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		{
+		/*{
 			Name:      "Detects hash-contained xss payload attacks, setter usage and property overloading",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -124,7 +124,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\W\s*hash\s*[^\w\s-])|(?:\w+=\W*[^,]*,[^\s(]\s*\()|(?:\?\"[^\s\"]\":)|(?:(?<!\/)__[a-z]+__)|(?:(?:^|[\s)\]\}])(?:s|g)etter\s*=)`,
 				},
 			},
-		},
+		},*/
 
 		{
 			Name:      "Detects self contained xss via with(), common loops and regex to string conversion",
