@@ -138,7 +138,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		{
+		/*{
 			Name:      "Detects JavaScript with(), ternary operators and XML predicate attacks",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -148,7 +148,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:[=(].+\?.+:)|(?:with\([^)]*\))|(?:(?<!\.)\s*source\W)`,
 				},
 			},
-		},
+		},*/
 		{
 			Name:      "Detects self-executing JavaScript functions",
 			Condition: "or",
