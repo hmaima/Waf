@@ -85,19 +85,19 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:\"+.*[<=]\\s*\"[^\"]+\")|(?:\"\\s*\\w+\\s*=)|(?:>\\w=\\/)|(?:#.+\\)[\"\\s]*>)|(?:\"\\s*(?:src|style|on\\w+)\\s*=\\s*\")|(?:[^\\"+]?\"[,;\\s]+\\w*[\\[\\(])`,
+					Pattern: `(?:"+.*[<=]\s*"[^"]+")|(?:"\s*\w+\s*=)|(?:>\w=\/)|(?:#.+\)["\s]*>)|(?:"\s*(?:src|style|on\w+)\s*=\s*")|(?:[^"\\]+?"[,;\s]+\w*[\\[\\(])`,
 				},
 			},
 		},
 
-		/*{
+		{
 			Name:      "finds unquoted attribute breaking injections",
 			Condition: "or",
 			Rules: []teler.Condition{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:^>[\\w\\s]*<\\/?\\w{2,}>)`,
+					Pattern: `(?:^>[\w\s]*<\\/?\w{2,}>)`,
 				},
 			},
 		},
@@ -109,12 +109,12 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:[+\\/]\\s*name[\\W\\d]*[)+])|(?:;\\W*url\\s*=)|(?:[^\\w\\s\\/?:>]\\s*(?:location|referrer|name)\\s*[^\\/\\w\\s-])`,
+					Pattern: `(?:[+\\/]\s*name[\W\d]*[)+])|(?:;\W*url\s*=)|(?:[^\w\s\/?:>]\s*(?:location|referrer|name)\s*[^\\/\w\s-])`,
 				},
 			},
 		},
 
-		{
+		/*{
 			Name:      "Detects hash-contained xss payload attacks, setter usage and property overloading",
 			Condition: "or",
 			Rules: []teler.Condition{
