@@ -114,7 +114,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		
+		{
 			Name:      "Detects hash-contained xss payload attacks, setter usage and property overloading",
 			Condition: "or",
 			Rules: []teler.Condition{
