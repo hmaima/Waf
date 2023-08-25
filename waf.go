@@ -523,7 +523,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},
-		{
+		/*{
 			Name:      "Detects classic SQL injection probings 1/2",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -544,7 +544,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\"\s*\*.+(?:or|id)\W*\"\d)|(?:\^\")|(?:^[\w\s\"-]+(?<=and\s)(?<=or\s)(?<=xor\s)(?<=nand\s)(?<=not\s)(?<=\|\|)(?<=\&\&)\w+\()|(?:\"[\s\d]*[^\w\s]+\W*\d\W*.*[\"\d])|(?:\"\s*[^\w\s?]+\s*[^\w\s]+\s*\")|(?:\"\s*[^\w\s]+\s*[\W\d].*(?:#|--))|(?:\".*\*\s*\d)|(?:\"\s*or\s[^\d]+[\w-]+.*\d)|(?:[()*<>%+-][\w-]+[^\w\s]+\"[^,])`,
 				},
 			},
-		},
+		},*/
 		{
 			Name:      "Detects basic SQL authentication bypass attempts 1/3",
 			Condition: "or",
