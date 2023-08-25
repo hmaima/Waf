@@ -34,7 +34,7 @@ var TelerWAF = teler.New(teler.Options{
 	Whitelists:      []string{},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
-		/{
+		{
 			Name:      "SQL Injection",
 			Condition: "or",
 			Rules: []teler.Condition{
