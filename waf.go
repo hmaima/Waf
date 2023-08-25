@@ -149,7 +149,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},*/
-		{
+		/*{
 			Name:      "Detects self-executing JavaScript functions",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -159,7 +159,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\/\w*\s*\)\s*\()|(?:\([\w\s]+\([\w\s]+\)[\w\s]+\))|(?:(?<!\/(?:mozilla\/\d\.\d\s))\([^)\[]+\[[^\]]+\][^)]*\))|(?:[^\s!][{([][^({[]+[{([][^}\\])]+[}\\])][\s+",\d]*[}\\])])|(?:"\)?\]\W*\[)|(?:=\s*[^:;]+\s*[{([][^}\\])]+[}\\])];)`,
 				},
 			},
-		},
+		},*/
 		/*{
 			Name:      "Detects the IE octal, hex and unicode entities",
 			Condition: "or",
