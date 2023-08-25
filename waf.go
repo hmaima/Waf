@@ -145,7 +145,7 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:[=(].+\?.+:)|(?:with\([^)]*\))|(?:(?<!\\.)\s*source\W)`,
+					Pattern: `(?:[=(].+\?.+:)|(?:with\([^)]*\))|(?:(?<!\.)\s*source\W)`,
 				},
 			},
 		},
