@@ -78,7 +78,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		/*{
+		{
 			Name:      "finds attribute breaking injections including whitespace attacks",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -90,7 +90,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		{
+		/*{
 			Name:      "finds unquoted attribute breaking injections",
 			Condition: "or",
 			Rules: []teler.Condition{
