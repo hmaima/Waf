@@ -126,7 +126,7 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},*/
 
-		{
+		/*{
 			Name:      "Detects self contained xss via with(), common loops and regex to string conversion",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -136,7 +136,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:with\s*\\(\s*.+\s*\\)\s*\w+\s*\\())|(?:(?:do|while|for)\s*\\([^)]*\\)\s*\\{)|(?:\/[\w\s]*\\[\W*\w])`,
 				},
 			},
-		},
+		},*/
 
 		/*{
 			Name:      "Detects JavaScript with(), ternary operators and XML predicate attacks",
