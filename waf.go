@@ -114,14 +114,14 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		/*{
+		
 			Name:      "Detects hash-contained xss payload attacks, setter usage and property overloading",
 			Condition: "or",
 			Rules: []teler.Condition{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:\\W\\s*hash\\s*[^\\w\\s-])|(?:\\w+=\\W*[^,]*,[^\\s(]\\s*\\()|(?:\\?\"[^\\s\"]\":)|(?:(?<!\\/)__[a-z]+__)|(?:(?:^|[\\s)\\]\\}])(?:s|g)etter\\s*=)`,
+					Pattern: `(?:\W\s*hash\s*[^\w\s-])|(?:\w+=\W*[^,]*,[^\s(]\s*\\()|(?:\\?\"[^\s\"]\":)|(?:(?<!\\/)__[a-z]+__)|(?:(?:^|[\s)\\]\\}])(?:s|g)etter\s*=)`,
 				},
 			},
 		},
@@ -133,7 +133,7 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:with\\s*\\(\\s*.+\\s*\\)\\s*\\w+\\s*\\()|(?:(?:do|while|for)\\s*\\([^)]*\\)\\s*\\{)|(?:\\/[\\w\\s]*\\[\\W*\\w)`,
+					Pattern: `(?:with\s*\\(\s*.+\s*\\)\s*\w+\s*\\()|(?:(?:do|while|for)\s*\\([^)]*\\)\s*\\{)|(?:\\/[\w\s]*\\[\W*\w)`,
 				},
 			},
 		},
@@ -145,11 +145,11 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:[=(].+\\?.+:)|(?:with\\([^)]*\\))|(?:(?<!\\.)\\s*source\\W)`,
+					Pattern: `(?:[=(].+\\?.+:)|(?:with\\([^)]*\\))|(?:(?<!\\.)\s*source\W)`,
 				},
 			},
 		},
-		{
+		/*{
 			Name:      "Detects self-executing JavaScript functions",
 			Condition: "or",
 			Rules: []teler.Condition{
