@@ -508,7 +508,7 @@ var TelerWAF = teler.New(teler.Options{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:\\)\\s*when\\s*\\d+\\s*then)|(?:\\"\\s*(?:#|--|{))|(?:\\/\\*!\\s?\\d+)|(?:ch(?:a)?r\\s*\\(\\s*\\d)|(?:(?:(n?and|x?or|not)\\s+|\\|\\||\\&\\&)\\s*\\w+\\()`,
+					Pattern: `(?:\)\s*when\s*\d+\s*then)|(?:\"\s*(?:#|--|{))|(?:\\/\*!\s?\d+)|(?:ch(?:a)?r\s*\(\s*\d)|(?:(?:(n?and|x?or|not)\s+|\|\||\&\&)\s*\w+\()`,
 				},
 			},
 		},
