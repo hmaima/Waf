@@ -69,41 +69,8 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 		
-		/*{
-			Name:      "finds html breaking injections including whitespace attacks",
-			Condition: "or",
-			Rules: []teler.Condition{
-				{
-					Method:  request.ALL,
-					Element: request.Any,
-					Pattern: `(?:\"[^\"]*[^-]?>)|(?:[^\\w\\s]\\s*\\/>)|(?:>\")`,
-				},
-			},
-		},
-
-		{
-			Name:      "finds attribute breaking injections including whitespace attacks",
-			Condition: "or",
-			Rules: []teler.Condition{
-				{
-					Method:  request.ALL,
-					Element: request.Any,
-					Pattern: `(?:"+.*[<=]\s*"[^"]+")|(?:"\s*\w+\s*=)|(?:>\w=\/)|(?:#.+\)["\s]*>)|(?:"\s*(?:src|style|on\w+)\s*=\s*")|(?:[^"\\]+?"[,;\s]+\w*[\\[\\(])`,
-				},
-			},
-		},*/
-
-		{
-			Name:      "finds unquoted attribute breaking injections",
-			Condition: "or",
-			Rules: []teler.Condition{
-				{
-					Method:  request.ALL,
-					Element: request.Any,
-					Pattern: `(?:^>[\w\s]*<\\/?\w{2,}>)`,
-				},
-			},
-		},
+		
+		
 
 		{
 			Name:      "Detects url-, name-, JSON, and referrer-contained payload attacks",
@@ -117,19 +84,20 @@ var TelerWAF = teler.New(teler.Options{
 			},
 		},
 
-		/*{
+		{
 			Name:      "Detects hash-contained xss payload attacks, setter usage and property overloading",
 			Condition: "or",
 			Rules: []teler.Condition{
 				{
 					Method:  request.ALL,
 					Element: request.Any,
-					Pattern: `(?:\W\s*hash\s*[^\w\s-])|(?:\w+=\W*[^,]*,[^\s(]\s*\()|(?:\?\"[^\s\"]\":)|(?:(?<!\/)__[a-z]+__)|(?:(?:^|[\s)\]\}])(?:s|g)etter\s*=)`,
+					Pattern := `(?:\\W\\s*hash\\s*[^\\w\\s-])|(?:\\w+=\\W*[^,]*,[^\\s(]\\s*\\()|(?:\\?\\"[^\\s\\"]\\\":)|(?:(?<!\\/)__[a-z]+__)|(?:(?:^|[\\s)\\]\\}])(?:s|g)etter\\s*=)`,
+
 				},
 			},
-		},*/
+		},
 
-		/*{
+		{
 			Name:      "Detects self contained xss via with(), common loops and regex to string conversion",
 			Condition: "or",
 			Rules: []teler.Condition{
@@ -139,7 +107,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:with\s*\\(\s*.+\s*\\)\s*\w+\s*\\())|(?:(?:do|while|for)\s*\\([^)]*\\)\s*\\{)|(?:\/[\w\s]*\\[\W*\w])`,
 				},
 			},
-		},*/
+		},
 
 		/*{
 			Name:      "Detects JavaScript with(), ternary operators and XML predicate attacks",
