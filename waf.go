@@ -32,7 +32,7 @@ var TelerWAF = teler.New(teler.Options{
 	},
 
 	Whitelists:      []string{
-		//`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
+		`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
 	},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
@@ -72,17 +72,7 @@ var TelerWAF = teler.New(teler.Options{
 		
 		
 
-		{
-			Name:      "Detects url-, name-, JSON, and referrer-contained payload attacks",
-			Condition: "or",
-			Rules: []teler.Condition{
-				{
-					Method:  request.ALL,
-					Element: request.Any,
-					Pattern: `(?:[+\\/]\s*name[\W\d]*[)+])|(?:;\W*url\s*=)|(?:[^\w\s\/?:>]\s*(?:location|referrer|name)\s*[^\\/\w\s-])`,
-				},
-			},
-		},
+		
 
 	
 
