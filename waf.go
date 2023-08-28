@@ -41,7 +41,7 @@ var TelerWAF = teler.New(teler.Options{
 			
 		},
 		// Specify file path or glob pattern of custom rule files.
-		CustomsFromRule: "/path/to/custom/rules/**/*.yaml",
+		//CustomsFromRule: "",
 		
 	Customs: []teler.Rule{
 		{
