@@ -31,9 +31,11 @@ var TelerWAF = teler.New(teler.Options{
 		//threat.BadCrawler,
 	},
 
-	Whitelists:      []string{
-		`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
-	},
+	Whitelists: []string{
+			
+			`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
+			
+		},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
 		{
