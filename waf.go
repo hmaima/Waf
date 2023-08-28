@@ -26,19 +26,23 @@ func ConvertToHttprouterHandle(h http.Handler) httprouter.Handle {
 }
 
 var TelerWAF = teler.New(teler.Options{
-	Excludes: []threat.Threat{
-		//threat.BadReferrer,
-		//threat.BadCrawler,
-	},
-
-
-Whitelists: []string{
+		// Exclude specific threats from being checked by the teler-waf.
+		Excludes: []threat.Threat{
+			threat.BadReferrer,
+			threat.BadCrawler,
+		},
+		// Specify whitelisted URIs (path & query parameters), headers,
+		// or IP addresses that will always be allowed by the teler-waf
+		// with DSL expressions.
+		Whitelists: []string{
 			`request.Headers matches "(curl|Go-http-client|okhttp)/*" && threat == BadCrawler`,
 			`request.URI startsWith "/wp-login.php"`,
-			//`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
-			`request.Headers contains "authorization" && request.Method == "POST"`,
+			`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
+			`request.Headers contains "authorization" && request.Method == "POST"`
 		},
-	CustomsFromFile: "",
+		// Specify file path or glob pattern of custom rule files.
+		CustomsFromRule: "/path/to/custom/rules/**/*.yaml",
+		
 	Customs: []teler.Rule{
 		{
 			Name:      "SQL Injection",
