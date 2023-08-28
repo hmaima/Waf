@@ -31,10 +31,12 @@ var TelerWAF = teler.New(teler.Options{
 		//threat.BadCrawler,
 	},
 
-	Whitelists: []string{
-			
-			`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
-			
+
+Whitelists: []string{
+			`request.Headers matches "(curl|Go-http-client|okhttp)/*" && threat == BadCrawler`,
+			`request.URI startsWith "/wp-login.php"`,
+			//`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
+			`request.Headers contains "authorization" && request.Method == "POST"`
 		},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
