@@ -27,12 +27,12 @@ func ConvertToHttprouterHandle(h http.Handler) httprouter.Handle {
 
 var TelerWAF = teler.New(teler.Options{
 	Excludes: []threat.Threat{
-		threat.BadReferrer,
-		threat.BadCrawler,
+		//threat.BadReferrer,
+		//threat.BadCrawler,
 	},
 
 	Whitelists:      []string{
-		`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
+		//`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
 	},
 	CustomsFromFile: "",
 	Customs: []teler.Rule{
