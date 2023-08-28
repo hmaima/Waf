@@ -35,10 +35,10 @@ var TelerWAF = teler.New(teler.Options{
 		// or IP addresses that will always be allowed by the teler-waf
 		// with DSL expressions.
 		Whitelists: []string{
-			`request.Headers matches "(curl|Go-http-client|okhttp)/*" && threat == BadCrawler`,
+			
 			`request.URI startsWith "/wp-login.php"`,
 			`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
-			`request.Headers contains "authorization" && request.Method == "POST"`
+			
 		},
 		// Specify file path or glob pattern of custom rule files.
 		CustomsFromRule: "/path/to/custom/rules/**/*.yaml",
