@@ -27,10 +27,10 @@ func ConvertToHttprouterHandle(h http.Handler) httprouter.Handle {
 
 var TelerWAF = teler.New(teler.Options{
 		// Exclude specific threats from being checked by the teler-waf.
-		Excludes: []threat.Threat{
+		/*Excludes: []threat.Threat{
 			threat.BadReferrer,
 			threat.BadCrawler,
-		},
+		},*/
 		// Specify whitelisted URIs (path & query parameters), headers,
 		// or IP addresses that will always be allowed by the teler-waf
 		// with DSL expressions.
@@ -75,7 +75,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},
-		//The converted  rules from the datasets associated with Teler WAF
+		/*//The converted  rules from the datasets associated with Teler WAF
 		{
 			Name:      "Detects self contained xss via with(), common loops and regex to string conversion",
 			Condition: "or",
@@ -461,7 +461,7 @@ var TelerWAF = teler.New(teler.Options{
 					Pattern: `(?:\\\\x[01fe][\\db-ce-f])|(?:%[01fe][\\db-ce-f])|(?:&#[01fe][\\db-ce-f])|(?:\\\\[01fe][\\db-ce-f])|(?:&#x[01fe][\\db-ce-f])`,
 				},
 			},
-		},*/
+		},
 		{
 			Name:      "Detects MySQL comments, conditions and ch(a)r injections",
 			Condition: "or",
