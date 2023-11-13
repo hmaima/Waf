@@ -6,7 +6,6 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"github.com/kitabisa/teler-waf"
 	"github.com/kitabisa/teler-waf/request"
-	"github.com/kitabisa/teler-waf/threat"
 	// /"github.com/govwa/user/session"
 )
 
@@ -26,22 +25,21 @@ func ConvertToHttprouterHandle(h http.Handler) httprouter.Handle {
 }
 
 var TelerWAF = teler.New(teler.Options{
-		// Exclude specific threats from being checked by the teler-waf.
-		/*Excludes: []threat.Threat{
-			threat.BadReferrer,
-			threat.BadCrawler,
-		},*/
-		// Specify whitelisted URIs (path & query parameters), headers,
-		// or IP addresses that will always be allowed by the teler-waf
-		// with DSL expressions.
-		Whitelists: []string{
-			
-			`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
-			
-		},
-		// Specify file path or glob pattern of custom rule files.
-		//CustomsFromRule: "",
-		
+	// Exclude specific threats from being checked by the teler-waf.
+	/*Excludes: []threat.Threat{
+		threat.BadReferrer,
+		threat.BadCrawler,
+	},*/
+	// Specify whitelisted URIs (path & query parameters), headers,
+	// or IP addresses that will always be allowed by the teler-waf
+	// with DSL expressions.
+	Whitelists: []string{
+
+		`request.IP in ["127.0.0.1", "::1", "0.0.0.0"]`,
+	},
+	// Specify file path or glob pattern of custom rule files.
+	//CustomsFromRule: "",
+
 	Customs: []teler.Rule{
 		{
 			Name:      "SQL Injection",
@@ -859,9 +857,7 @@ var TelerWAF = teler.New(teler.Options{
 				},
 			},
 		},*/
-		
 
-		
 	},
 	LogFile: "teler.log",
 })
